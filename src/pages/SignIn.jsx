@@ -64,6 +64,86 @@
 // export default SignIn;
 
 
+// import React, { useState } from "react";
+// import { useNavigate, Link } from "react-router-dom";
+// import "../styles/style.css";
+
+// function SignIn() {
+//   const navigate = useNavigate();
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setError("");
+
+//     try {
+//       const API_URL = "https://bella-nails-studio---backend.up.railway.app";
+//       const response = await fetch("http://localhost:5001/api/auth/login", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ email, password }),
+//       });
+
+//       const data = await response.json();
+
+//       if (!response.ok) {
+//         setError(data.message || "Invalid email or password!");
+//         return;
+//       }
+
+    
+//       localStorage.setItem("loggedInUser", JSON.stringify({ name: data.name, email: data.email }));
+//       localStorage.setItem("token", data.token);
+      
+
+//       alert(`Welcome, ${data.name}!`);
+//       navigate("/schedule");
+//     } catch (err) {
+//       console.error(err);
+//       setError("Server error. Please try again later.");
+//     }
+//   };
+
+//   return (
+//     <div className="signIn-container">
+//       <Link to="/" id="companyName">Bella Nails Studio</Link>
+
+//       <div className="form-container">
+//         <form onSubmit={handleSubmit}>
+//           <h2 className="form-title">User Log In</h2>
+
+//           <input
+//             type="email"
+//             placeholder="Email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             required
+//           />
+//           <input
+//             type="password"
+//             placeholder="Password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             required
+//           />
+//           <button type="submit">Sign In</button>
+
+//           {error && <p style={{ color: "red" }}>{error}</p>}
+
+//           <p className="form-footer">
+//             Don't have an account? <Link to="/signUp">Sign Up</Link>
+//           </p>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default SignIn;
+
+
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/style.css";
@@ -74,13 +154,15 @@ function SignIn() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // 🔐 URL do backend no Railway
+  const API_URL = "https://bella-nails-studio-backend-production-6905.up.railway.app";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const API_URL = "https://bella-nails-studio---backend.up.railway.app";
-      const response = await fetch("http://localhost:5001/api/auth/login", {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -93,13 +175,15 @@ function SignIn() {
         return;
       }
 
-      // Salva token JWT no localStorage
-      localStorage.setItem("loggedInUser", JSON.stringify({ name: data.name, email: data.email }));
+      // 🔑 Salva token JWT + dados do usuário no localStorage
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify({ name: data.admin ? data.admin.name : data.name, email: data.email })
+      );
       localStorage.setItem("token", data.token);
-      
 
-      alert(`Welcome, ${data.name}!`);
-      navigate("/schedule");
+      alert(`Welcome, ${data.admin ? data.admin.name : data.name}!`);
+      navigate("/schedule"); // Redireciona para a página de agendamento
     } catch (err) {
       console.error(err);
       setError("Server error. Please try again later.");
@@ -108,7 +192,9 @@ function SignIn() {
 
   return (
     <div className="signIn-container">
-      <Link to="/" id="companyName">Bella Nails Studio</Link>
+      <Link to="/" id="companyName">
+        Bella Nails Studio
+      </Link>
 
       <div className="form-container">
         <form onSubmit={handleSubmit}>
