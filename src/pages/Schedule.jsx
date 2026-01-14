@@ -47,6 +47,7 @@ function Schedule() {
     }
 
     try {
+      const API_URL = "https://bella-nails-studio---backend.up.railway.app";
       const response = await fetch("http://localhost:5001/api/appointments", {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -98,6 +99,7 @@ function Schedule() {
     console.log("Sending appointment data: ", { date, time });
 
     try {
+      const API_URL = "https://bella-nails-studio---backend.up.railway.app";
       const response = await fetch("http://localhost:5001/api/appointments", {
         method: "POST",
         headers: {
@@ -126,6 +128,7 @@ function Schedule() {
     if (!token) return;
 
     try {
+      const API_URL = "https://bella-nails-studio---backend.up.railway.app";
       const response = await fetch("http://localhost:5001/api/appointments", {
         method: "DELETE",
         headers: {

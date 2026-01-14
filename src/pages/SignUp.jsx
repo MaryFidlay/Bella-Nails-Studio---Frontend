@@ -101,6 +101,7 @@ function SignUp() {
     setError(""); // limpa erros anteriores
 
     try {
+      const API_URL = "https://bella-nails-studio---backend.up.railway.app";
       const response = await fetch("http://localhost:5001/api/auth/register", {
         method: "POST",
         headers: {
