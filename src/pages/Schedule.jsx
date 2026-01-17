@@ -273,7 +273,12 @@ function Schedule() {
   const [userAppointments, setUserAppointments] = useState([]);
 
   // 🔐 URL do backend no Railway
-  const API_URL = "https://bella-nails-studio-backend-production-6905.up.railway.app";
+  // const API_URL = "https://bella-nails-studio-backend-production-6905.up.railway.app";
+
+  const API_URL = process.env.REACT_APP_API_URL;
+  console.log("API_URL:", process.env.REACT_APP_API_URL);
+  
+
 
   // 🔐 Verifica login e carrega agendamentos ao iniciar
   useEffect(() => {
