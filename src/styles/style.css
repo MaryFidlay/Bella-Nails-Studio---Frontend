@@ -1,478 +1,360 @@
+/* ===== GLOBAL ===== */
 body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #4f46e5, #6366f1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6, p, label, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== HOME ===== */
 .home-container h1 {
-    font-size: 180px;
-    color: #ffffff;
-  }
+  font-size: clamp(60px, 15vw, 180px);
+  color: #ffffff;
+  text-align: center;
+}
 
 .form-m {
-    font-size: 80px;
-    margin: 40px 0 10px;
-    color: rgb(9, 94, 158);
-    text-align: center;
-  }
+  font-size: clamp(40px, 10vw, 80px);
+  margin: 40px 0 10px;
+  color: rgb(9, 94, 158);
+  text-align: center;
+}
 
 .home-subtitle {
-    font-size: 35px;
-    color: #e5e7eb;
-    text-align: center;
-    margin:150px 0 40px;
-   
-  }
-  
+  font-size: clamp(20px, 5vw, 35px);
+  color: #e5e7eb;
+  text-align: center;
+  margin: clamp(20px, 10%, 150px) 0 40px;
+}
+
 #actionButtons {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
+  gap: 20px;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 button {
-  padding: 20px 50px;
+  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   background: #4f46e5;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
 }
 
 button:hover {
   background-color: rgb(82, 182, 228);
 }
 
+button:active {
+  transform: scale(0.97);
+}
 
 #companyName {
-    display: block;
-    text-align: center;    
-    font-size: 50px;          
-    font-weight: bold;
-    color: white;         
-    text-decoration: none;    
-    margin: 50px 0 30px 0; 
-    cursor: pointer;
-    transition: color 0.3s;
+  display: block;
+  text-align: center;
+  font-size: clamp(30px, 6vw, 50px);
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin: 50px 0 30px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 #companyName:hover {
-    color: rgb(82, 182, 228); 
+  color: rgb(82, 182, 228);
 }
 
-
+/* ===== FORM ===== */
 form {
-    background: #ffffff;
-    padding: 32px 36px;
-    border-radius: 12px;
-    width: 100%;
-    width: 380px;
-    height: 420px;           
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;   
-    gap: 14px;
+  background: #ffffff;
+  padding: 32px 36px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
 }
-
 
 form input {
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-    font-size: 15px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 form input:focus {
-    outline: none;
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
 }
 
-
 form button {
-    margin-top: 10px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #4f46e5;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.1s;
-  
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
 }
 
 form button:hover {
-    background: #4338ca;
+  background: #4338ca;
 }
 
 form button:active {
-    transform: scale(0.97);
-}
-
-
-p {
-    margin-top: 30px;
-    color: #e5e7eb;
-    font-size: 24px;
-}
-
-
-p a {
-    color: #ffffff;
-    font-weight: 680;
-    text-decoration: none;
-}
-
-p a:hover {
-    text-decoration: underline;
-}
-
-
-@media (max-width: 420px) {
-    form {
-        padding: 26px 22px;
-    }
-}
-
-.form-footer {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #6b7280;
-    text-align: center;
-}
-
-.form-footer a {
-    color: #4f46e5;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.form-footer a:hover {
-    text-decoration: underline;
+  transform: scale(0.97);
 }
 
 .form-title {
-    text-align: center;
-    font-size: 26px;
-    font-weight: 600;
-    color: black;
-    margin-bottom: 25px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 25px;
 }
 
-
-@media (max-width: 600px) {
-    .times,
-    .myAppointments {
-        padding: 20px;
-    }
-
-    #timesContainer {
-        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    }
-} 
-
-#logoutAdminBtn {
-    margin-top: 30px;
-    padding: 12px 22px;
-    border-radius: 8px;
-    border: none;
-    background: #111827;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-} 
-
-#logoutAdminBtn:hover {
-    background: #1f2933;
+.form-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
 }
 
+.form-footer a {
+  color: #4f46e5;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-#welcomeAdmin {
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-weight: 600;
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== TEXTS ===== */
+p {
+  margin-top: 20px;
+  color: #e5e7eb;
+  font-size: 18px;
+  text-align: center;
+}
+
+p a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
 }
 
 label {
-    color: #ffffff;
-    margin-bottom: 10px;
-    font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
-#adminDate {
-    background: #ffffff;
-    padding: 12px;
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    margin-bottom: 20px;
-}
-
-
-.allAppointments {
-    background: #ffffff;
-    width: 100%;
-    max-width: 650px;
-    padding: 25px 30px;
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    margin-top: 50px;
-}
-
-
-.allAppointments h3 {
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: #1f2933;
-}
-
-#appointmentsContainer div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f3f4f6;
-    padding: 10px 14px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-#appointmentsContainer button {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: none;
-    background: #ef4444;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#appointmentsContainer button:hover {
-    background: #dc2626;
+/* ===== ADMIN ===== */
+#welcomeAdmin {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 #logoutAdminBtn {
-    margin-top: 30px;
-    padding: 12px 22px;
-    border-radius: 8px;
-    border: none;
-    background: #111827;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
+  margin-top: 30px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  background: #111827;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 #logoutAdminBtn:hover {
-    background: #1f2933;
+  background: #1f2933;
 }
 
-
-@media (max-width: 600px) {
-    .allAppointments {
-        padding: 20px;
-    }
-
-    #appointmentsContainer div {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
+#adminDate {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
 }
 
-
-.welcome {
-    color: #f2efef;
-    text-align: center;
+/* ===== APPOINTMENTS ===== */
+.allAppointments, .times, .myAppointments {
+  width: 100%;
+  max-width: 1000px;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
 }
 
-
-  #welcome {
-    font-size: 36px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    font-weight: 600;
-  }
-  
-
-  .schedule-container label {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-  
-
-  .flatpickr-calendar {
-    margin-bottom: 70px;
-    border-radius: 102px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
-  
- 
-  .times {
-    width: 1000px;
-   
-    background: #ffffff;
-    color: #1f2937;
-    padding: 25px 30px;
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    margin-top: 30px;
-    margin-bottom: 40px;
-    align-items: center;
-  }
-  
-  .times h3 {
-    margin-bottom: 20px;
-    font-size: 40px;
-    font-weight: 600;
-  }
-  
-
-  #timesContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 12px;
-  }
-  
-  #timesContainer button {
-    padding: 12px 0;
-    border: none;
-    border-radius: 8px;
-    background: #4f46e5;
-    color: #ffffff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.1s;
-  }
-  
-  #timesContainer button:hover:not(:disabled) {
-    background: #4338ca;
-  }
-  
-  #timesContainer button:active:not(:disabled) {
-    transform: scale(0.96);
-  }
-  
-  #timesContainer button:disabled {
-    background: #fca5a5;
-    cursor: not-allowed;
-  }
-  
-
-  .myAppointments {
-    width: 1000px;
-    background: #ffffff;
-    color: #1f2937;
-    padding: 25px 30px;
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    margin-bottom: 30px;
-  }
-  
-  .myAppointments h3 {
-    margin-bottom: 15px;
-    font-size: 40px;
-    font-weight: 600;
-  }
-  
-  #myAppointments div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f3f4f6;
-    padding: 10px 14px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-  
-  #myAppointments button {
-    padding: 6px 10px;
-    border: none;
-    border-radius: 6px;
-    background: #6644ef;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  #myAppointments button:hover {
-    background: #dc2626;
-  }
-  
-
-  #logoutBtn {
-    margin-top: 20px;
-    padding: 12px 26px;
-    border-radius: 8px;
-    border: none;
-    background: #111827;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  #logoutBtn:hover {
-    background: #1f2937;
-  }
-  
-
-
-  .welcomeAdmin {
-    font-size: 20px;
-  }
-  
-
-
-  /* ===== ADMIN SCHEDULE (layout igual ao cliente) ===== */
-
-.allAppointments {
-  margin-top: 20px;
+.allAppointments h3, .times h3, .myAppointments h3 {
+  margin-bottom: 20px;
+  font-size: clamp(20px, 4vw, 40px);
+  font-weight: 600;
 }
 
-.appointment-row {
+#appointmentsContainer div, #myAppointments div, .appointment-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #f3f4f6;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
-  padding: 12px 16px;
-  margin-bottom: 12px;
-
-  background-color: #f2f2f2;
+#appointmentsContainer button, #myAppointments button, .cancel-btn {
+  padding: 6px 12px;
   border-radius: 6px;
-}
-
-.appointment-info {
-  font-size: 16px;
-}
-
-.cancel-btn {
-  background-color: #e74c3c;
-  color: #fff;
   border: none;
-  padding: 6px 16px;
-  border-radius: 4px;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#appointmentsContainer button:hover, #myAppointments button:hover, .cancel-btn:hover {
+  background-color: #dc2626;
+}
+
+/* ===== TIMES GRID ===== */
+#timesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+#timesContainer button {
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+#timesContainer button:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+#timesContainer button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+#timesContainer button:disabled {
+  background: #fca5a5;
+  cursor: not-allowed;
+}
+
+/* ===== WELCOME ===== */
+.welcome, .welcomeAdmin {
+  text-align: center;
+  color: #f2efef;
+}
+
+#welcome {
+  font-size: clamp(24px, 6vw, 36px);
+  margin: 50px 0;
+  font-weight: 600;
+}
+
+/* ===== FLATPICKR ===== */
+.schedule-container label {
+  font-size: clamp(18px, 3vw, 30px);
+  margin-bottom: 10px;
+}
+
+.flatpickr-calendar {
+  margin-bottom: 70px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== LOGOUT BUTTONS ===== */
+#logoutBtn {
+  margin-top: 20px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  border: none;
+  background: #111827;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
 }
 
-.cancel-btn:hover {
-  background-color: #c0392b;
+#logoutBtn:hover {
+  background: #1f2937;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 1024px) {
+  .times, .myAppointments, .allAppointments {
+      padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  #timesContainer, #appointmentsContainer {
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  }
+
+  .times h3, .myAppointments h3, .allAppointments h3 {
+      font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .times, .myAppointments, .allAppointments, form {
+      padding: 15px;
+      width: 90%;
+  }
+
+  .form-m {
+      font-size: 40px;
+  }
 }
