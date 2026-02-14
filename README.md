@@ -18,7 +18,7 @@ The frontend communicates with a backend API (hosted on Render) and supports:
 - Responsive UI (desktop, tablet, mobile)
 - Modern, clean design
 
----sim\
+---
 
 ## 🛠️ Tech Stack
 
