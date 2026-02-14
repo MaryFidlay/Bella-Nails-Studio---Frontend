@@ -43,7 +43,7 @@ The frontend communicates with a backend API (hosted on Render) and supports:
 1. Clone the repo: `https://github.com/MaryFidlay/Bella-Nails-Studio---Frontend`  
 2. Install dependencies: `npm install`  
 3. Create `.env` with `VITE_API_URL=https://bella-nails-studio-backend.onrender.com  
-4. Run: `npm run dev`  
+4. Run: `npm start`  
 
 ---
 
